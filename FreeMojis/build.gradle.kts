@@ -1,2 +1,2 @@
-version = "1.0.0"
-description = "Emoji unlocker"
+version = "1.0.1"
+description = "FreeMojis"
