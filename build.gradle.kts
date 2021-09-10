@@ -9,6 +9,7 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
         classpath("com.github.Aliucord:gradle:main-SNAPSHOT")
     }
 }
@@ -21,26 +22,29 @@ allprojects {
     }
 }
 
-fun Project.aliucord(configuration: AliucordExtension.() -> Unit) = extensions.getByName<AliucordExtension>("aliucord").configuration()
+fun Project.aliucord(configuration: AliucordExtension.() -> Unit) =
+        extensions.getByName<AliucordExtension>("aliucord").configuration()
 
-fun Project.android(configuration: BaseExtension.() -> Unit) = extensions.getByName<BaseExtension>("android").configuration()
+fun Project.android(configuration: BaseExtension.() -> Unit) =
+        extensions.getByName<BaseExtension>("android").configuration()
 
 subprojects {
     apply(plugin = "com.android.library")
     apply(plugin = "com.aliucord.gradle")
+    apply(plugin = "kotlin-android")
 
     aliucord {
-        author("DISCORD USERNAME", 123456789L)
-        updateUrl.set("https://raw.githubusercontent.com/USERNAME/REPONAME/builds/updater.json")
-        buildUrl.set("https://raw.githubusercontent.com/USERNAME/REPONAME/builds/%s.zip")
+        author("JFronny", 381467466246651906L)
+        updateUrl.set("https://raw.githubusercontent.com/JFronny/aliucord-plugins/builds/updater.json")
+        buildUrl.set("https://raw.githubusercontent.com/JFronny/aliucord-plugins/builds/%s.zip")
     }
 
     android {
-        compileSdkVersion(30)
+        compileSdkVersion(31)
 
         defaultConfig {
             minSdk = 24
-            targetSdk = 30
+            targetSdk = 31
         }
 
         compileOptions {
