@@ -1,2 +1,2 @@
 version = "1.0.1"
-description = "FreeMojis"
+description = "Enables you to use other servers emojis without nitro"
